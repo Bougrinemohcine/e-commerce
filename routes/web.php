@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -13,12 +14,12 @@ Route::post('admin', [AuthController::class, 'auth_login_admin'])->name('auth.lo
 Route::get('admin/logout', [AuthController::class, 'auth_logout'])->name('auth.logout');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('admin/dashboard', function () {
-        return view('admin.dashboard');
-    });
+
+    Route::get('admin/dashboard', [DashboardController::class, 'dashboard']); // Assuming login_admin is the method for admin login
 
     Route::get('admin/admin/list', function () {
-        return view('admin.admin.list');
+        $data['header_title'] = 'Admin';
+        return view('admin.admin.list',$data);
     });
 });
 
