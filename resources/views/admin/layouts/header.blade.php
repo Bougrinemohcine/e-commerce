@@ -5,7 +5,7 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      
+
     </ul>
 
     <!-- Right navbar links -->
@@ -112,6 +112,15 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar Menu -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+            <img src="{{ asset('assets/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="user">
+        </div>
+
+        <div class="info">
+            <a href="#" class="d-block">{{Auth::user()->name}}</a>
+        </div>
+      </div>
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class

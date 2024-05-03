@@ -24,11 +24,14 @@
                           <div class="card-body">
                             <div class="form-group">
                               <label>Name</label>
-                              <input type="text" value="{{$user->name}}" class="form-control" required name="name" placeholder="Enter Name">
+                              <input type="text" value="{{old('name',$user->name)}}" class="form-control" required name="name" placeholder="Enter Name">
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="email" value="{{$user->email}}" class="form-control" required name="email" placeholder="Enter Email">
+                                <input type="email" value="{{old('email',$user->email)}}" class="form-control" required name="email" placeholder="Enter Email">
+                                <div style="color: red">
+                                    {{$errors->first('email')}}
+                                </div>
                             </div>
                             <div class="form-group">
                               <label>Password</label>
